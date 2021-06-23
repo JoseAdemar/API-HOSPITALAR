@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.hospitalar.api.model.OrdemDeServico;
 
 @Repository
-public interface OrdemDeServicoRepository extends JpaRepository<OrdemDeServico, Long>{
+public interface OrdemDeServicoRepository extends JpaRepository<OrdemDeServico, Long>, OrdemDeServicoRepositoryQueries{
 
 }

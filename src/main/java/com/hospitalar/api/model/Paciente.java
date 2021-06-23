@@ -23,6 +23,8 @@ public class Paciente {
 	 
 	 private String nome;
 	 
+	 private String cpf;
+	 
 	 private Integer idade;
 	 
 	 @Column(name = "data_de_nascimento")

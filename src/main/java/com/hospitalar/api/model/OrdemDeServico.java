@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -30,6 +32,7 @@ public class OrdemDeServico {
 	 @OneToOne
 	 private Paciente paciente;
 	 
+	 @CreationTimestamp
 	 private LocalDateTime dataHora;
 
 }
