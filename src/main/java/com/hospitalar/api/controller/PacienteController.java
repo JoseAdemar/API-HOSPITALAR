@@ -2,6 +2,8 @@ package com.hospitalar.api.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,13 +27,14 @@ public class PacienteController {
 	private PacienteService pacienteService;
 
 	@PostMapping
-	public ResponseEntity<Paciente> cadastraPaciente(@RequestBody Paciente paciente) {
+	public ResponseEntity<Paciente> cadastraPaciente(@RequestBody @Valid Paciente paciente) {
 
 		Paciente cadastro = pacienteService.cadastrarPaciente(paciente);
 
 		return ResponseEntity.status(HttpStatus.CREATED).body(cadastro);
 	}
 
+	
 	@GetMapping
 	public ResponseEntity<List<Paciente>> listaTodosPacientes() {
 
@@ -52,7 +55,7 @@ public class PacienteController {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Paciente> atualizaPacientesPorId(@RequestBody Paciente paciente, @PathVariable Long id) {
+	public ResponseEntity<Paciente> atualizaPacientesPorId(@RequestBody @Valid Paciente paciente, @PathVariable Long id) {
 
 		Paciente listaPorId = pacienteService.updatePacientePorId(paciente, id);
 		

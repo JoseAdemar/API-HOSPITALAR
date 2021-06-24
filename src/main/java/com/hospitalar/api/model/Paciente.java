@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -21,15 +22,20 @@ public class Paciente {
 	 @GeneratedValue(strategy = GenerationType.IDENTITY)
 	 private Long id;
 	 
+	 @NotNull
 	 private String nome;
 	 
+	 @NotNull
 	 private String cpf;
 	 
+	 @NotNull
 	 private Integer idade;
 	 
+	 @NotNull
 	 @Column(name = "data_de_nascimento")
 	 private String dataNascimento;
 	 
+	 @NotNull
 	 private String telefone;
 	 
 	 

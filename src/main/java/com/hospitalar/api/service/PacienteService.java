@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
+import com.hospitalar.api.exception.PacienteNaoEncontradoException;
 import com.hospitalar.api.model.Paciente;
 import com.hospitalar.api.repository.PacienteRepository;
 
@@ -28,7 +29,7 @@ public class PacienteService {
 
 	public Paciente listarPacientePorId(Long id) {
 
-		return pacienteRepository.findById(id).get();
+		return pacienteRepository.findById(id).orElseThrow(() -> new PacienteNaoEncontradoException(id));
 	}
 
 	public Paciente updatePacientePorId(Paciente paciente, Long id) {
@@ -46,8 +47,12 @@ public class PacienteService {
 	}
 	
 	public void deletarPacientePorId(Long id) {
-		
+		try {
 		pacienteRepository.deleteById(id);
+		
+		}catch (EmptyResultDataAccessException e) {
+			throw new PacienteNaoEncontradoException(id);
+		}
 	}
 	
 	public Paciente consultaDinamicaDePaciente(String nome, String cpf, Integer idade, String dataNascimento, String telefone) {

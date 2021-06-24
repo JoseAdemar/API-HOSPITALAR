@@ -2,6 +2,8 @@ package com.hospitalar.api.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +29,7 @@ public class OrdemDeServicoController {
      
      
      @PostMapping
-     public ResponseEntity<OrdemDeServico> cadastraOs(@RequestBody OrdemDeServico ordemDeServico){
+     public ResponseEntity<OrdemDeServico> cadastraOs(@RequestBody @Valid OrdemDeServico ordemDeServico){
    	  
    	  OrdemDeServico cadastro = ordemDeServicoService.cadastrarOs(ordemDeServico);
    	  
@@ -51,7 +53,7 @@ public class OrdemDeServicoController {
      
      
      @PutMapping("/{id}")
-     public ResponseEntity<OrdemDeServico> updateOrdemDeServicoPorId(@RequestBody OrdemDeServico ordemDeServico , @PathVariable Long id){
+     public ResponseEntity<OrdemDeServico> updateOrdemDeServicoPorId(@RequestBody @Valid OrdemDeServico ordemDeServico , @PathVariable Long id){
     	 
     	 OrdemDeServico listaPorId = ordemDeServicoService.updateOrdemDeServicoPorId(ordemDeServico, id);
     	 
