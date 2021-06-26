@@ -28,10 +28,10 @@ public class Paciente {
 	 @NotNull
 	 private String cpf;
 	 
-	 
+	 @NotNull
 	 private Integer idade;
 	 
-	 
+	 @NotNull
 	 @Column(name = "data_de_nascimento")
 	 private String dataNascimento;
 	 
