@@ -17,7 +17,7 @@ public class OrdemDeServicoService {
 
 	@Autowired
 	private OrdemDeServicoRepository ordemDeServicoRepository;
-
+	
 	public OrdemDeServico cadastrarOs(OrdemDeServico ordemDeServico) {
 
 		return ordemDeServicoRepository.save(ordemDeServico);

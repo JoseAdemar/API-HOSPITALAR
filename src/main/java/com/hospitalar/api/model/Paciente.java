@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.br.CPF;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -26,6 +28,7 @@ public class Paciente {
 	 private String nome;
 	 
 	 @NotNull
+	 @CPF
 	 private String cpf;
 	 
 	 @NotNull

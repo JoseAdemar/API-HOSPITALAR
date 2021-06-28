@@ -29,7 +29,8 @@ public class OrdemDeServicoController {
      
      
      @PostMapping
-     public ResponseEntity<OrdemDeServico> cadastraOs(@RequestBody @Valid OrdemDeServico ordemDeServico){
+     public ResponseEntity<OrdemDeServico> cadastraOs
+       (@RequestBody @Valid OrdemDeServico ordemDeServico ){
    	  
    	  OrdemDeServico cadastro = ordemDeServicoService.cadastrarOs(ordemDeServico);
    	  
